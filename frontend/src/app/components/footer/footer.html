@@ -1,0 +1,98 @@
+<footer id="contato" class="bg-gray-900 pt-20 pb-10 border-t border-gray-800">
+  <div *ngIf="personalInfo$ | async as info" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+      
+      <div>
+        <h2 class="text-3xl font-extrabold text-white mb-2">Vamos Conversar?</h2>
+        <p class="text-gray-400 mb-8">
+          Tem um projeto em mente ou quer bater um papo sobre tecnologia? 
+          Envie uma mensagem direta para meu WhatsApp.
+        </p>
+
+        <form class="space-y-4" (submit)="$event.preventDefault()">
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-1">Seu Nome</label>
+            <input #nameInput type="text" placeholder="Como devo te chamar?" 
+                   class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-1">Sua Mensagem</label>
+            <textarea #msgInput rows="4" placeholder="Descreva brevemente seu projeto ou dúvida..." 
+                      class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"></textarea>
+          </div>
+
+          <button (click)="sendToWhatsapp(nameInput.value, msgInput.value, info.phone || '5583999284785')" 
+                  class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-6 rounded-lg transition-all transform hover:-translate-y-1 flex justify-center items-center gap-2 shadow-lg shadow-green-900/20">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            Enviar via WhatsApp
+          </button>
+
+        </form>
+      </div>
+
+      <div class="flex flex-col justify-between">
+        
+        <div>
+          <h3 class="text-xl font-bold text-white mb-6">Informações de Contato</h3>
+          
+          <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex items-center gap-4 mb-4 group hover:border-indigo-500/50 transition-colors">
+            <div class="bg-indigo-900/30 p-3 rounded-lg text-indigo-400 group-hover:text-indigo-300">
+              <i class="fa-solid fa-envelope text-xl"></i>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase font-semibold">Email</p>
+              <a [href]="'mailto:' + info.email" class="text-white hover:text-indigo-400 transition-colors font-medium break-all">
+                {{ info.email }}
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex items-center gap-4 mb-8 group hover:border-indigo-500/50 transition-colors">
+            <div class="bg-indigo-900/30 p-3 rounded-lg text-indigo-400 group-hover:text-indigo-300">
+              <i class="fa-solid fa-location-dot text-xl"></i>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase font-semibold">Localização</p>
+              <p class="text-white font-medium">João Pessoa, PB - Brasil</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-white mb-6">Minhas Redes</h3>
+          <div class="flex gap-4">
+            
+            <a [href]="info.github_url" target="_blank" class="h-12 w-12 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-white hover:text-black transition-all transform hover:-translate-y-1 text-2xl border border-gray-700">
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a [href]="info.linkedin_url" target="_blank" class="h-12 w-12 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#0A66C2] hover:text-white transition-all transform hover:-translate-y-1 text-2xl border border-gray-700">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a [href]="info.instagram_url" target="_blank" class="h-12 w-12 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-gradient-to-br hover:from-purple-500 hover:to-orange-500 hover:text-white transition-all transform hover:-translate-y-1 text-2xl border border-gray-700">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a [href]="info.whatsapp_url" target="_blank" class="h-12 w-12 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all transform hover:-translate-y-1 text-2xl border border-gray-700">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="border-t border-gray-800 pt-8 text-center">
+      <p class="text-gray-500 text-sm">
+        &copy; 2026 <strong>Ramon Ferreira</strong>. Desenvolvido com Laravel 11, Angular e Tailwind CSS.
+      </p>
+    </div>
+
+  </div>
+</footer>

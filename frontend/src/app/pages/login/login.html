@@ -1,0 +1,67 @@
+<div class="min-h-screen bg-gray-900 flex items-center justify-center px-4">
+  
+  <div class="max-w-md w-full bg-gray-800 rounded-xl shadow-2xl border border-gray-700 overflow-hidden">
+    
+    <div class="bg-gray-900/50 p-8 text-center border-b border-gray-700">
+      <h2 class="text-3xl font-bold text-white tracking-tight">Painel Admin</h2>
+      <p class="text-indigo-400 text-sm mt-2 font-medium">Faça login para gerenciar seu portfólio</p>
+    </div>
+
+    <div class="p-8">
+      <form (submit)="onSubmit()">
+        
+        <div class="mb-6">
+          <label class="block text-gray-400 text-sm font-bold mb-2 ml-1">Email</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fa-solid fa-envelope text-gray-500"></i>
+            </div>
+            <input 
+              [(ngModel)]="email" name="email"
+              type="email" 
+              class="w-full pl-10 pr-4 py-3 bg-gray-900 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors placeholder-gray-600"
+              placeholder="admin@exemplo.com"
+            >
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <label class="block text-gray-400 text-sm font-bold mb-2 ml-1">Senha</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fa-solid fa-lock text-gray-500"></i>
+            </div>
+            <input 
+              [(ngModel)]="password" name="password"
+              type="password" 
+              class="w-full pl-10 pr-4 py-3 bg-gray-900 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors placeholder-gray-600"
+              placeholder="••••••••"
+            >
+          </div>
+        </div>
+
+        <button 
+          type="submit" 
+          [disabled]="isLoading"
+          class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-4 rounded-lg shadow-lg transform transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+        >
+          <i *ngIf="isLoading" class="fa-solid fa-circle-notch fa-spin"></i>
+          <span *ngIf="!isLoading">Acessar Sistema</span>
+          <span *ngIf="isLoading">Verificando...</span>
+        </button>
+
+        <p *ngIf="errorMessage" class="mt-4 text-center text-red-400 text-sm bg-red-900/20 py-2 rounded border border-red-900/50">
+          <i class="fa-solid fa-circle-exclamation mr-1"></i> {{ errorMessage }}
+        </p>
+
+      </form>
+    </div>
+    
+    <div class="bg-gray-900/50 p-4 text-center border-t border-gray-700">
+      <a href="/" class="text-gray-500 text-sm hover:text-white transition-colors">
+        <i class="fa-solid fa-arrow-left mr-1"></i> Voltar ao site
+      </a>
+    </div>
+
+  </div>
+</div>

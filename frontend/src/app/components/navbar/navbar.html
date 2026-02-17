@@ -1,0 +1,48 @@
+<nav class="bg-gray-900/95 backdrop-blur-md border-b border-gray-800 fixed w-full top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <div class="flex-shrink-0 cursor-pointer">
+        <a href="#" class="text-2xl font-bold text-white tracking-tighter hover:text-indigo-400 transition-colors">
+          Ramon<span class="text-indigo-500">.Dev</span>
+        </a>
+      </div>
+      
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-8">
+          <a href="#inicio" class="text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Início</a>
+          <a href="#projetos" class="text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Projetos</a>
+          <a href="#cursos" class="text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Cursos Realizados</a>
+          <a href="#sobre" class="text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Sobre Mim</a>
+          <a href="#contato" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-500 hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-0.5">
+            Contatos
+          </a>
+        </div>
+      </div>
+
+      <div class="-mr-2 flex md:hidden">
+        <button (click)="toggleMenu()" type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none transition-colors">
+          <span class="sr-only">Abrir menu</span>
+          
+          <svg *ngIf="!isMobileMenuOpen" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+
+          <svg *ngIf="isMobileMenuOpen" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isMobileMenuOpen" class="md:hidden bg-gray-900 border-b border-gray-800 animate-fade-in-down">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a href="#inicio" (click)="toggleMenu()" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Início</a>
+      <a href="#projetos" (click)="toggleMenu()" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Projetos</a>
+      <a href="#cursos" (click)="toggleMenu()" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Cursos Realizados</a>
+      <a href="#sobre" (click)="toggleMenu()" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Sobre Mim</a>
+      <a href="#contato" (click)="toggleMenu()" class="text-indigo-400 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-bold">Contatos</a>
+    </div>
+  </div>
+</nav>
