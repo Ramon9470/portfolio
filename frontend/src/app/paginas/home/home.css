@@ -1,0 +1,31 @@
+/* --- Variáveis Globais para esta página --- */
+:root {
+  --bg-dark-900: #111827; /* Gray 900 */
+  --indigo-500: #6366f1;
+}
+
+/* --- Wrapper Principal --- */
+.home-wrapper {
+  background-color: var(--bg-dark-900);
+  color: #f3f4f6; /* Gray 100 - Texto claro padrão */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- Ajuste de Espaçamento da Navbar Fixa --- */
+/* Como a navbar é 'fixed-top', precisamos empurrar o conteúdo para baixo */
+.main-content {
+  padding-top: 0; /* O padding já é tratado dentro da section Hero, mas se precisar ajustar, altere aqui */
+}
+
+/* --- Personalização da Seleção de Texto (Highlight) --- */
+/* Equivalente ao selection:bg-indigo-500 selection:text-white */
+::selection {
+  background-color: var(--indigo-500);
+  color: white;
+}
+
+/* Suporte para Firefox */
+::-moz-selection {
+  background-color: var(--indigo-500);
+  color: white;
+}

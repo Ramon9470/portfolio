@@ -1,0 +1,59 @@
+/* --- Variáveis --- */
+:root {
+  --bg-dark-800: #1f2937; /* Gray 800 */
+  --bg-dark-700: #374151; /* Gray 700 */
+}
+
+/* --- Seção --- */
+.tech-section {
+  background-color: var(--bg-dark-800);
+  border-color: var(--bg-dark-700) !important;
+}
+
+/* Espaçamento de letras (Tracking) */
+.tracking-wide {
+  letter-spacing: 0.1em;
+}
+
+/* --- Item de Tecnologia --- */
+.tech-item {
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.tech-item:hover {
+  transform: scale(1.1); /* Efeito de Zoom */
+}
+
+/* --- Ícone --- */
+.tech-icon {
+  font-size: 2.25rem; /* text-4xl equivalent */
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .tech-icon {
+    font-size: 3rem; /* text-5xl equivalent */
+  }
+}
+
+/* Quando passa o mouse no item, o ícone fica branco */
+.tech-item:hover .tech-icon {
+  color: white !important;
+}
+
+/* --- Texto --- */
+.tech-name {
+  font-size: 0.75rem; /* text-xs */
+  transition: color 0.3s ease;
+}
+
+/* Utilitário Text Muted ajustado para tema dark */
+.text-muted {
+  color: #6b7280 !important; /* Gray 500 */
+}
+
+/* Quando passa o mouse no item, o texto fica branco */
+.tech-item:hover .tech-name {
+  color: white !important;
+}

@@ -1,0 +1,24 @@
+<section class="tech-section py-5 border-top border-bottom border-dark-subtle">
+  <div class="container">
+    
+    <p class="text-center text-secondary small fw-bold text-uppercase mb-5 tracking-wide">
+      Tecnologias & Ferramentas
+    </p>
+
+    <div class="d-flex flex-wrap justify-content-center gap-4 gap-md-5">
+      
+      <div *ngFor="let tech of technologies" class="tech-item group d-flex flex-column align-items-center gap-2">
+        
+        <i [class]="tech.icon" 
+           [style.color]="tech.color"
+           class="tech-icon transition-colors"></i>
+        
+        <span class="tech-name small fw-medium text-muted transition-colors">
+          {{ tech.name }}
+        </span>
+        
+      </div>
+
+    </div>
+  </div>
+</section>

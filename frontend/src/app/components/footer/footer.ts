@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioService } from '../../services/portfolio';
+import { Portfolio } from '../../servicos/portfolio';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class Footer implements OnInit {
   personalInfo$!: Observable<any>;
 
-  constructor(private portfolio: PortfolioService) {}
+  constructor(private portfolio: Portfolio) {}
 
   ngOnInit(): void {
     this.personalInfo$ = this.portfolio.getPersonalInfos();
@@ -24,10 +24,9 @@ export class Footer implements OnInit {
       alert('Por favor, preencha seu nome e mensagem!');
       return;
     }
-    const cleanPhone = phone.replace(/\D/g, ''); 
-    
+
+    const cleanPhone = phone.replace(/\D/g, '');     
     const text = `Olá! Meu nome é *${name}*. ${message}`;
-    
     const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
     
     window.open(url, '_blank');

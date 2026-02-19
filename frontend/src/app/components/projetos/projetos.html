@@ -1,0 +1,75 @@
+<section id="projetos" class="projects-section py-5">
+  <div class="container py-4">
+    
+    <div class="text-center mb-5 animate-fade-in">
+      <h2 class="display-5 fw-bold text-white mb-3">
+        Projetos Realizados
+      </h2>
+      <div class="divider mx-auto rounded-pill"></div>
+    </div>
+
+    <div *ngIf="projects; else loadingProjects" class="row g-4 justify-content-center">
+      
+      <div *ngFor="let project of projects" class="col-md-6 col-lg-4">
+        <div class="card project-card h-100 border-0 shadow-lg">
+          
+          <div class="card-img-wrap position-relative overflow-hidden">
+            
+            <img *ngIf="project.imagem_url" 
+              [src]="'http://localhost:8081' + project.imagem_url" 
+              [alt]="project.titulo" 
+              class="card-img-top w-100 h-100 object-fit-cover">
+            
+            <div *ngIf="!project.imagem_url" class="placeholder-img w-100 h-100 d-flex align-items-center justify-content-center text-secondary">
+              <i class="fa-solid fa-code display-4 opacity-25"></i>
+            </div>
+            
+            <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center gap-3">
+               <a *ngIf="project.repo_url" [href]="project.repo_url" target="_blank" 
+                  class="btn btn-icon btn-dark-custom rounded-circle" title="Ver Código">
+                 <i class="fa-brands fa-github fs-5"></i>
+               </a>
+               
+               <a *ngIf="project.live_url" [href]="project.live_url" target="_blank" 
+                  class="btn btn-icon btn-indigo-custom rounded-circle" title="Ver Demo Online">
+                 <i class="fa-solid fa-external-link fs-5"></i>
+               </a>
+            </div>
+          </div>
+
+          <div class="card-body p-4 d-flex flex-column">
+            <h3 class="h5 fw-bold text-white mb-2">{{ project.titulo }}</h3>
+            
+            <p class="card-text text-secondary small mb-4 line-clamp-3 flex-grow-1">
+              {{ project.descricao }}
+            </p>
+            
+            <div class="d-flex flex-wrap gap-2 mt-auto">
+              <ng-container *ngIf="project.tecnologias">
+                  <span *ngFor="let tech of project.tecnologias" class="badge tech-badge fw-semibold">
+                    {{ tech }}
+                  </span>
+              </ng-container>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    
+    <div *ngIf="projects && projects.length === 0" class="text-center text-secondary py-5">
+        <i class="fa-solid fa-folder-open display-4 mb-3 d-block"></i>
+        Nenhum projeto encontrado no banco de dados.
+    </div>
+
+  </div>
+</section>
+
+<ng-template #loadingProjects>
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4" *ngFor="let i of [1,2,3]">
+      <div class="skeleton-card rounded-4"></div>
+    </div>
+  </div>
+</ng-template>

@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('titulo');
             $table->string('slug')->unique();
-            $table->text('description');
-            $table->string('image_url')->nullable();
+            $table->text('descricao');
+            $table->string('imagem_url')->nullable();
             
             $table->string('repo_url')->nullable();
             $table->string('live_url')->nullable();
             
-            $table->json('tech_stack')->nullable(); 
+            $table->jsonb('tecnologias')->nullable(); 
             
-            $table->boolean('is_featured')->default(false);
-            $table->integer('order')->default(0);
+            $table->boolean('em_destaque')->default(false);
+            $table->integer('ordem')->default(0);
             $table->timestamps();
         });
     }

@@ -1,7 +1,53 @@
-/node_modules
-/vendor
+# ==========================================
+# DEPENDÊNCIAS (Não devem ir pro GitHub)
+# ==========================================
+node_modules/
+vendor/
+
+# ==========================================
+# ARQUIVOS DE AMBIENTE E SEGURANÇA (Senhas)
+# ==========================================
 .env
+.env.backup
+.env.*
+*.key
+auth.json
+
+# ==========================================
+# BUILD E CACHE DO FRONTEND (Angular)
+# ==========================================
+dist/
+tmp/
+out-tsc/
+bazel-out/
+.angular/
+
+# ==========================================
+# STORAGE E CACHE DO BACKEND (Laravel)
+# ==========================================
+public/storage
+public/build/
+public/hot
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+
+# ==========================================
+# LOGS E ERROS
+# ==========================================
+npm-debug.log
+yarn-error.log
+*.log
+
+# ==========================================
+# ARQUIVOS DE SISTEMA OPERACIONAL E IDE (Editores)
+# ==========================================
 .DS_Store
-/public/storage
-/storage/*.key
-docker-compose.override.yml
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

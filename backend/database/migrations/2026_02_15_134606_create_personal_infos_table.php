@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('personal_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('title'); 
-            $table->text('summary'); 
+            $table->string('nome_completo');
+            $table->string('titulo'); 
+            $table->text('resumo');
             $table->string('email');
-            $table->string('phone')->nullable();
+            $table->string('telefone')->nullable();
             
-            $table->string('profile_photo_url')->nullable(); 
+            $table->string('perfil_foto_url')->nullable();
             $table->string('cv_url')->nullable(); 
             
             $table->string('github_url')->nullable();
@@ -27,11 +27,11 @@ return new class extends Migration
             $table->string('whatsapp_url')->nullable();
             $table->string('instagram_url')->nullable();
             
-            $table->string('city')->nullable();
-            $table->string('state')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('estado')->nullable();
 
-            $table->json('skills')->nullable();
-            $table->json('languages')->nullable();
+            $table->jsonb('habilidades')->nullable();
+            $table->jsonb('idiomas')->nullable();
             
             $table->timestamps();
         });

@@ -1,0 +1,112 @@
+/* Seção Principal */
+.course-section {
+  background-color: #111827; /* Gray-900 */
+}
+
+.divider {
+  height: 4px;
+  width: 60px;
+  background: linear-gradient(to right, #22c55e, #4ade80);
+  border-radius: 50rem;
+}
+
+/* --- NOVO LAYOUT EM GRID (Lado a Lado) --- */
+.course-list {
+  display: grid;
+  /* Cria colunas automáticas de no mínimo 350px. Se couber mais, coloca lado a lado */
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+  gap: 1.5rem; /* Espaço entre os cards */
+}
+
+.course-card {
+  background-color: #1f2937; /* Gray-800 */
+  border: 1px solid #374151 !important;
+  transition: all 0.3s ease;
+  height: 100%; /* Garante que todos tenham a mesma altura */
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card:hover {
+  border-color: rgba(34, 197, 94, 0.5) !important;
+  transform: translateY(-5px); /* Efeito de subir levemente */
+}
+
+/* --- TIPOGRAFIA E TEXTOS --- */
+
+/* Nome da Instituição e Status */
+.text-secondary {
+  color: #d1d5db !important; 
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.text-muted {
+  color: #9ca3af !important; /* Gray-400 */
+}
+
+/* Título do Curso - FORÇAR UMA LINHA */
+.course-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  
+  /* O segredo para não quebrar linha: */
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adiciona "..." se o texto for longo demais */
+  max-width: 100%;
+  display: block;
+}
+
+/* Modalidade */
+.x-small {
+  font-size: 0.75rem;
+  color: #6b7280 !important; /* Gray-500 */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- ÍCONE, IMAGEM E BADGES --- */
+
+/* Badge de Horas (Agora ficará no topo ou canto) */
+.hour-badge {
+  background-color: rgba(17, 24, 39, 0.8);
+  border: 1px solid #374151;
+  color: #d1d5db;
+  font-size: 0.75rem;
+}
+
+/* Ícone Padrão (Fallback) */
+.icon-box {
+  width: 50px;
+  height: 50px; /* Reduzi um pouco para ficar mais harmônico no card menor */
+  background-color: #111827;
+  border: 1px solid #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-i {
+  color: #9ca3af;
+  font-size: 1.25rem;
+}
+
+.course-card:hover .course-title {
+  color: #4ade80 !important;
+}
+
+/* --- SKELETON LOADING (Ajustado para o grid) --- */
+.skeleton-box {
+  height: 140px; /* Altura aproximada de um card */
+  background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+  background-size: 200% 100%;
+  animation: pulse-loading 1.5s infinite;
+  border-radius: 1rem;
+}
+
+@keyframes pulse-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

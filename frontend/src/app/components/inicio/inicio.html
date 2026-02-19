@@ -1,0 +1,82 @@
+<section id="inicio" class="hero-section position-relative overflow-hidden py-5">
+  <div class="background-effects position-absolute w-100 h-100 top-0 start-0 pe-none">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <div class="container position-relative z-2 pt-5">
+    <div *ngIf="personalInfo; else loadingSkeleton" class="row align-items-center gy-5 animate-fade-in-up">
+      
+      <div class="col-md-5 col-lg-4 text-center">
+        <div class="image-wrapper position-relative d-inline-block">
+          <div class="glow-ring"></div>
+          
+          <img src="assets/images/foto.png" 
+              alt="Foto de Ramon Ferreira" 
+              class="profile-photo shadow-lg">
+        </div>
+      </div>
+
+      <div class="col-md-7 col-lg-8 text-center text-md-start">
+        <p class="greeting text-indigo-400 fw-bold text-uppercase mb-2 tracking-wide">
+          Olá, meu nome é
+        </p>
+        
+        <h1 class="display-3 fw-extrabold text-white mb-3 tracking-tight">
+          {{ personalInfo.nome_completo }}
+        </h1>
+        
+        <h2 class="h3 fw-bold text-gradient mb-4">
+          {{ personalInfo.titulo }}
+        </h2>
+        
+        <p class="summary text-gray-300 lead mb-5 mx-auto mx-md-0 max-w-2xl">
+          {{ personalInfo.resumo }}
+        </p>
+        
+        <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+          <a href="http://localhost:8081/api/v1/generate-cv" target="_blank" 
+             class="btn btn-indigo-custom rounded-pill px-4 py-3 d-flex align-items-center gap-2 shadow-lg">
+            <i class="fa-solid fa-file-arrow-down fs-5"></i>
+            <span class="fw-bold">Baixar Currículo PDF</span>
+          </a>
+          
+          <a [href]="personalInfo.github_url" target="_blank" 
+             class="btn btn-dark-custom rounded-pill px-4 py-3 d-flex align-items-center gap-2">
+            <i class="fa-brands fa-github fs-4"></i>
+            <span class="fw-bold">GitHub</span>
+          </a>
+
+          <a [href]="personalInfo.linkedin_url" target="_blank" 
+             class="btn btn-linkedin-custom rounded-pill px-4 py-3 d-flex align-items-center gap-2">
+            <i class="fa-brands fa-linkedin fs-4"></i>
+            <span class="fw-bold">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #loadingSkeleton>
+  <div class="container pt-5">
+    <div class="row align-items-center gy-5 placeholder-glow">
+      <div class="col-md-5 col-lg-4 text-center">
+        <div class="placeholder rounded-circle" style="width: 250px; height: 250px; background-color: #1f2937;"></div>
+      </div>
+      <div class="col-md-7 col-lg-8 text-center text-md-start">
+        <span class="placeholder col-3 mb-3 bg-secondary rounded"></span>
+        <span class="placeholder col-10 mb-3 d-block bg-secondary rounded" style="height: 60px;"></span>
+        <span class="placeholder col-6 mb-4 d-block bg-secondary rounded" style="height: 35px;"></span>
+        <div class="space-y-2 mb-5">
+          <span class="placeholder col-12 bg-secondary rounded"></span>
+          <span class="placeholder col-8 bg-secondary rounded"></span>
+        </div>
+        <div class="d-flex gap-3">
+          <span class="placeholder rounded-pill bg-secondary" style="width: 180px; height: 55px;"></span>
+          <span class="placeholder rounded-pill bg-secondary" style="width: 130px; height: 55px;"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,185 @@
+/* Container da Navbar com efeito de vidro */
+.navbar-custom {
+  background-color: rgba(17, 24, 39, 0.95); /* Gray-900 com 95% opacidade */
+  backdrop-filter: blur(12px); /* Efeito de vidro do Tailwind */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(31, 41, 55, 1); /* Gray-800 */
+  height: 80px;
+  transition: all 0.3s transition;
+  z-index: 1050;
+}
+
+/* Estilo do Logo */
+.navbar-brand-custom {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.05em;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand-custom:hover {
+  color: #818cf8; /* Indigo-400 */
+}
+
+.text-indigo {
+  color: #4f46e5; /* Indigo-600 */
+}
+
+/* Links de Navegação (Efeito "Morto" resolvido aqui) */
+.nav-link-custom {
+  color: #d1d5db; /* Gray-300 */
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #ffffff;
+  background-color: #1f2937; /* Gray-800 */
+}
+
+/* Botão de Contato (Com cor de fundo e sombra indigo) */
+.btn-contato-custom {
+  background-color: #4f46e5; /* Indigo-600 */
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: none;
+}
+
+.btn-contato-custom:hover {
+  background-color: #6366f1; /* Indigo-500 */
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3); /* Sombra Indigo */
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* Botão Toggle Mobile */
+.btn-mobile-toggle {
+  background-color: #1f2937;
+  border: none;
+  color: #9ca3af;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.btn-mobile-toggle:hover {
+  color: #ffffff;
+  background-color: #374151;
+}
+
+.icon-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Menu Mobile Overlay */
+.mobile-menu-overlay {
+  background-color: #111827;
+  border-bottom: 1px solid #1f2937;
+  width: 100%;
+  animation: fadeInDown 0.3s ease-out;
+}
+
+.mobile-link {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  display: block;
+  border-radius: 0.375rem;
+  font-weight: 500;
+}
+
+.mobile-link:hover {
+  background-color: #374151;
+  color: white;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================= */
+/* --- MODAL SOBRE MIM (CÓDIGO ADICIONADO) --- */
+/* ========================================= */
+
+.about-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.85); /* Fundo escuro do Hero */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; /* Acima de tudo, até da navbar */
+  animation: fadeIn 0.3s ease-out;
+  padding: 1rem;
+}
+
+.about-modal-card {
+  background-color: #1e293b; /* Gray-800 */
+  border: 1px solid #334155;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 650px; /* Tamanho bom para leitura */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease-out;
+}
+
+.about-modal-body {
+  max-height: 60vh;
+  overflow-y: auto;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* Scrollbar customizada para o texto longo */
+.about-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.about-modal-body::-webkit-scrollbar-track {
+  background: #1e293b; 
+}
+.about-modal-body::-webkit-scrollbar-thumb {
+  background-color: #4f46e5; 
+  border-radius: 10px;
+}
+
+.btn-close-custom {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+}
+
+.btn-close-custom:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,72 @@
+<section id="cursos" class="course-section py-5 position-relative overflow-hidden">
+  <div class="container position-relative z-1 py-4">
+
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold text-white mb-3">
+        Formação Acadêmica & Cursos
+      </h2>
+      <div class="divider mx-auto rounded-pill"></div>
+    </div>
+
+    <div *ngIf="courses; else loadingCourses" class="course-list">
+      
+      <div *ngFor="let curso of courses" class="course-card card p-4 rounded-4 border-0 shadow-lg">
+        
+        <div class="d-flex justify-content-between align-items-start mb-3">
+          
+          <ng-container *ngIf="curso.imagem_url; else defaultIcon">
+            <img [src]="'http://localhost:8081' + curso.imagem_url" 
+                 alt="{{ curso.titulo }}"
+                 class="rounded-circle shadow-sm flex-shrink-0"
+                 style="width: 50px; height: 50px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1);">
+          </ng-container>
+
+          <ng-template #defaultIcon>
+            <div class="icon-box rounded-circle flex-shrink-0">
+              <i class="fa-solid fa-graduation-cap icon-i"></i>
+            </div>
+          </ng-template>
+
+          <span *ngIf="curso.horas" class="badge hour-badge rounded-pill px-2 py-1">
+            {{ curso.horas }}h
+          </span>
+        </div>
+
+        <div>
+          <h3 class="course-title fw-bold" title="{{ curso.titulo }}">
+            {{ curso.titulo }}
+          </h3>
+          
+          <p class="text-secondary mb-2">
+            {{ curso.instituicao }} 
+          </p>
+          
+          <div class="d-flex align-items-center justify-content-between border-top border-secondary border-opacity-25 pt-3 mt-2">
+            <span class="badge bg-dark text-muted border border-secondary border-opacity-25 rounded-pill fw-normal">
+              {{ curso.status }}
+            </span>
+            <small *ngIf="curso.tipo" class="x-small fw-bold">
+              {{ curso.tipo }}
+            </small>
+          </div>
+        </div>
+
+      </div>
+      
+      <div *ngIf="courses.length === 0" class="text-center text-muted py-5 w-100 grid-column-full">
+        <i class="fa-solid fa-book-open display-4 mb-3 d-block opacity-25"></i>
+        Nenhum curso cadastrado ainda.
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<ng-template #loadingCourses>
+  <div class="course-list">
+    <div class="skeleton-box"></div>
+    <div class="skeleton-box"></div>
+    <div class="skeleton-box"></div>
+  </div>
+</ng-template>

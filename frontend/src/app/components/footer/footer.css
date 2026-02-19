@@ -1,0 +1,89 @@
+:root {
+  --bg-dark-900: #0f172a;
+  --bg-dark-800: #1e293b;
+  --border-dark: #334155;
+  --indigo-500: #6366f1;
+}
+
+.footer-section {
+  background-color: var(--bg-dark-900);
+  border-top: 1px solid var(--border-dark) !important;
+}
+
+/* --- MELHORIA DE CONTRASTE NOS INPUTS --- */
+.custom-input {
+  background-color: #1e293b !important; /* Mais claro para destacar do fundo */
+  border: 1px solid #475569 !important; /* Borda mais visível */
+  color: #f8fafc !important; /* Texto quase branco */
+  font-size: 0.85rem;
+}
+
+.custom-input:focus {
+  border-color: var(--indigo-500) !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25) !important;
+}
+
+.custom-input::placeholder {
+  color: #94a3b8; /* Placeholder mais visível */
+}
+
+/* --- VERSÕES COMPACTAS DOS CARDS --- */
+.contact-card-mini {
+  background-color: #1e293b;
+  border: 1px solid var(--border-dark);
+  transition: all 0.3s ease;
+}
+
+.icon-wrap-mini {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(79, 70, 229, 0.1);
+  color: #818cf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* --- BOTÕES SOCIAIS MENORES --- */
+.social-btn-mini {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e293b;
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-btn-mini:hover {
+  transform: translateY(-3px);
+  color: white;
+}
+
+.btn-whatsapp {
+  background-color: #16a34a;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #15803d;
+  transform: translateY(-2px);
+}
+
+.x-small { font-size: 0.7rem; letter-spacing: 0.05em; }
+.text-secondary { color: #94a3b8 !important; }
+.text-muted { color: #64748b !important; }
+
+/* Efeitos de Hover das Redes (mantidos) */
+.btn-github:hover { background-color: white; color: black; }
+.btn-linkedin:hover { background-color: #0a66c2; }
+.btn-instagram:hover { background: linear-gradient(45deg, #f09433, #bc1888); }
+.btn-whatsapp-icon:hover { background-color: #22c55e; }

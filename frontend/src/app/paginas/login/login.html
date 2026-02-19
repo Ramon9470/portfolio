@@ -1,0 +1,68 @@
+<div class="login-wrapper min-vh-100 d-flex align-items-center justify-content-center px-3">
+  
+  <div class="login-card card border-0 shadow-lg w-100">
+    
+    <div class="card-header bg-dark-900 border-bottom border-dark-subtle p-4 text-center">
+      <h2 class="h3 fw-bold text-white mb-2 tracking-tight">Painel Admin</h2>
+      <p class="text-indigo-400 small fw-medium mb-0">Faça login para gerenciar seu portfólio</p>
+    </div>
+
+    <div class="card-body p-4 p-md-5">
+      
+      <form (submit)="onSubmit()">
+        
+        <div class="mb-4">
+          <label class="form-label small fw-bold text-secondary ms-1 text-uppercase">Email</label>
+          <div class="input-group">
+            <span class="input-group-text bg-dark-input border-end-0 text-secondary border-dark-subtle">
+              <i class="fa-solid fa-envelope"></i>
+            </span>
+            <input 
+              [(ngModel)]="email" name="email"
+              type="email" 
+              class="form-control bg-dark-input text-white border-start-0 border-dark-subtle ps-0 shadow-none custom-focus"
+              placeholder="admin@email.com"
+            >
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <label class="form-label small fw-bold text-secondary ms-1 text-uppercase">Senha</label>
+          <div class="input-group">
+            <span class="input-group-text bg-dark-input border-end-0 text-secondary border-dark-subtle">
+              <i class="fa-solid fa-lock"></i>
+            </span>
+            <input 
+              [(ngModel)]="password" name="password"
+              type="password" 
+              class="form-control bg-dark-input text-white border-start-0 border-dark-subtle ps-0 shadow-none custom-focus"
+              placeholder="••••••••"
+            >
+          </div>
+        </div>
+
+        <button 
+          type="submit" 
+          [disabled]="isLoading"
+          class="btn btn-primary-custom w-100 py-3 fw-bold shadow-lg d-flex justify-content-center align-items-center gap-2"
+        >
+          <i *ngIf="isLoading" class="fa-solid fa-circle-notch fa-spin"></i>
+          <span>{{ isLoading ? 'Verificando...' : 'Acessar Sistema' }}</span>
+        </button>
+
+        <div *ngIf="errorMessage" class="alert alert-custom-danger mt-4 mb-0 py-2 d-flex align-items-center justify-content-center gap-2 small rounded-pill" role="alert">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          {{ errorMessage }}
+        </div>
+
+      </form>
+    </div>
+    
+    <div class="card-footer bg-dark-900 border-top border-dark-subtle p-3 text-center">
+      <a href="/" class="text-decoration-none text-secondary hover-text-white small transition-colors">
+        <i class="fa-solid fa-arrow-left me-1"></i> Voltar ao site
+      </a>
+    </div>
+
+  </div>
+</div>

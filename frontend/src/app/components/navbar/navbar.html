@@ -1,48 +1,85 @@
-<nav class="bg-gray-900/95 backdrop-blur-md border-b border-gray-800 fixed w-full top-0 z-50 shadow-lg">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
-      
-      <div class="flex-shrink-0 cursor-pointer">
-        <a href="#" class="text-2xl font-bold text-white tracking-tighter hover:text-indigo-400 transition-colors">
-          Ramon<span class="text-indigo-500">.Dev</span>
+<nav class="navbar navbar-expand-md fixed-top navbar-custom">
+  <div class="container">
+    
+    <div class="d-flex align-items-center">
+      <a href="#" class="navbar-brand-custom">
+        Ramon<span class="text-indigo">.Dev</span>
+      </a>
+    </div>
+
+    <div class="d-none d-md-block">
+      <div class="d-flex align-items-center gap-3">
+        <a href="#inicio" class="nav-link-custom">Início</a>
+        <a href="#projetos" class="nav-link-custom">Projetos</a>
+        <a href="#cursos" class="nav-link-custom">Cursos Realizados</a>
+        
+        <a href="#" (click)="openAboutModal($event)" class="nav-link-custom">Sobre Mim</a>
+        
+        <a href="#contato" class="btn-contato-custom">
+          Contatos
         </a>
       </div>
-      
-      <div class="hidden md:block">
-        <div class="ml-10 flex items-baseline space-x-8">
-          <a href="#inicio" class="text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Início</a>
-          <a href="#projetos" class="text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Projetos</a>
-          <a href="#cursos" class="text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Cursos Realizados</a>
-          <a href="#sobre" class="text-gray-300 hover:text-white hover:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Sobre Mim</a>
-          <a href="#contato" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-500 hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-0.5">
-            Contatos
-          </a>
-        </div>
-      </div>
-
-      <div class="-mr-2 flex md:hidden">
-        <button (click)="toggleMenu()" type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none transition-colors">
-          <span class="sr-only">Abrir menu</span>
-          
-          <svg *ngIf="!isMobileMenuOpen" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-
-          <svg *ngIf="isMobileMenuOpen" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
     </div>
+
+    <div class="d-md-none">
+      <button (click)="toggleMenu()" type="button" class="btn-mobile-toggle">
+        <svg *ngIf="!isMobileMenuOpen" class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+        <svg *ngIf="isMobileMenuOpen" class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
   </div>
 
-  <div *ngIf="isMobileMenuOpen" class="md:hidden bg-gray-900 border-b border-gray-800 animate-fade-in-down">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a href="#inicio" (click)="toggleMenu()" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Início</a>
-      <a href="#projetos" (click)="toggleMenu()" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Projetos</a>
-      <a href="#cursos" (click)="toggleMenu()" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Cursos Realizados</a>
-      <a href="#sobre" (click)="toggleMenu()" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Sobre Mim</a>
-      <a href="#contato" (click)="toggleMenu()" class="text-indigo-400 hover:text-white hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-bold">Contatos</a>
+  <div *ngIf="isMobileMenuOpen" class="mobile-menu-overlay d-md-none">
+    <div class="container py-3 d-flex flex-column gap-2">
+      <a href="#inicio" (click)="toggleMenu()" class="mobile-link">Início</a>
+      <a href="#projetos" (click)="toggleMenu()" class="mobile-link">Projetos</a>
+      <a href="#cursos" (click)="toggleMenu()" class="mobile-link">Cursos</a>
+      
+      <a href="#" (click)="openAboutModal($event)" class="mobile-link">Sobre Mim</a>
+      
+      <a href="#contato" (click)="toggleMenu()" class="mobile-link text-indigo fw-bold">Contatos</a>
     </div>
   </div>
 </nav>
+
+<div *ngIf="showAboutModal" class="about-modal-overlay">
+  <div class="about-modal-card p-0">
+    
+    <div class="d-flex justify-content-between align-items-center p-4 border-bottom" style="border-color: #334155 !important;">
+      <h3 class="h5 fw-bold mb-0 text-white">
+        <i class="fa-solid fa-address-card text-indigo me-2"></i> Sobre Mim
+      </h3>
+      <button (click)="closeAboutModal()" class="btn-close-custom">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="p-4 text-gray-300 about-modal-body">
+      <p class="lead text-white fw-bold mb-3">
+        Olá! Sou o Ramon Ferreira, Desenvolvedor Full Stack.
+      </p>
+      <p>
+        Sou um profissional apaixonado por tecnologia e resolução de problemas. Minha trajetória na área de desenvolvimento começou com a curiosidade de entender como as coisas funcionam por trás das telas, o que rapidamente se transformou em uma carreira dedicada a criar soluções eficientes e escaláveis.
+      </p>
+      <p>
+        Tenho experiência prática na construção de sistemas completos, desde a modelagem de banco de dados e arquitetura de APIs no Backend, até a criação de interfaces responsivas e dinâmicas no Frontend. Gosto de trabalhar com stacks modernas e estou sempre em busca de boas práticas de código limpo (Clean Code).
+      </p>
+      <p class="mb-0">
+        Meu objetivo é continuar evoluindo tecnicamente, colaborar com equipes engajadas e desenvolver projetos que realmente gerem impacto positivo para os usuários. Quando não estou codando, gosto de me atualizar sobre as novas tendências do mercado de TI.
+      </p>
+    </div>
+
+    <div class="p-4 border-top d-flex justify-content-end" style="border-color: #334155 !important;">
+      <button (click)="closeAboutModal()" class="btn-contato-custom">
+        <i class="fa-solid fa-check me-1"></i> Entendi
+      </button>
+    </div>
+
+  </div>
+</div>

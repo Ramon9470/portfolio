@@ -1,0 +1,98 @@
+/* --- Variáveis --- */
+:root {
+  --bg-dark-900: #111827; /* Gray 900 */
+  --bg-dark-800: #1f2937; /* Gray 800 */
+  --border-dark: #4b5563; /* Gray 600 */
+  --indigo-500: #6366f1;
+  --indigo-600: #4f46e5;
+  --indigo-400: #818cf8;
+}
+
+/* --- Wrapper Principal --- */
+.login-wrapper {
+  background-color: var(--bg-dark-900);
+}
+
+/* --- Card de Login --- */
+.login-card {
+  max-width: 450px; /* max-w-md equivalent */
+  background-color: var(--bg-dark-800);
+  border-radius: 0.75rem; /* rounded-xl */
+  overflow: hidden;
+}
+
+/* --- Tipografia --- */
+.text-indigo-400 {
+  color: var(--indigo-400) !important;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+/* --- Inputs Personalizados (Dark Theme) --- */
+.bg-dark-input {
+  background-color: var(--bg-dark-900);
+  border-color: var(--border-dark);
+}
+
+.input-group-text {
+  border-color: var(--border-dark);
+}
+
+/* Ajuste do placeholder */
+.form-control::placeholder {
+  color: #4b5563; /* Gray 600 */
+}
+
+/* Estado de Foco (Ring Effect) */
+.custom-focus:focus {
+  background-color: var(--bg-dark-900);
+  color: white;
+  border-color: var(--indigo-500);
+}
+
+/* Quando o input tem foco, pintamos a borda do span (ícone) também para parecer um só */
+.input-group:focus-within .input-group-text {
+  border-color: var(--indigo-500);
+}
+
+/* --- Botão Principal --- */
+.btn-primary-custom {
+  background-color: var(--indigo-600);
+  color: white;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary-custom:hover:not(:disabled) {
+  background-color: var(--indigo-500);
+  transform: translateY(-2px);
+  color: white;
+}
+
+.btn-primary-custom:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: var(--indigo-600);
+}
+
+/* --- Alerta de Erro --- */
+.alert-custom-danger {
+  background-color: rgba(127, 29, 29, 0.2); /* Red 900/20 */
+  border: 1px solid rgba(127, 29, 29, 0.5);
+  color: #f87171; /* Red 400 */
+}
+
+/* --- Link Voltar --- */
+.text-secondary {
+  color: #6b7280 !important; /* Gray 500 */
+}
+
+.hover-text-white:hover {
+  color: white !important;
+}
+
+.transition-colors {
+  transition: color 0.3s ease;
+}
