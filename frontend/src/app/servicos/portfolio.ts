@@ -7,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class Portfolio {
-  private apiUrl = 'http://localhost:8081/api/v1';
+  private apiUrl = 'https://api-portfolio-kgeb.onrender.com/api/v1';
 
   private _refreshNeeded$ = new Subject<void>();
 

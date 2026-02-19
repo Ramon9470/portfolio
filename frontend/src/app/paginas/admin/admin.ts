@@ -212,7 +212,6 @@ export class Admin implements OnInit {
   saveProject() {
     const formData = new FormData();
     
-    // Adiciona os campos de texto
     formData.append('titulo', this.currentProject.titulo);
     formData.append('descricao', this.currentProject.descricao || '');
     formData.append('repo_url', this.currentProject.repo_url || '');
