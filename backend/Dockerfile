@@ -33,4 +33,4 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Comando final: Roda as tabelas no banco e liga o servidor web
-CMD php artisan migrate --force && apache2-foreground
+CMD php artisan migrate:fresh --force && apache2-foreground
